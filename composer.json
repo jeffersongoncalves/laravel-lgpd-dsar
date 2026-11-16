@@ -1,0 +1,72 @@
+{
+    "name": "jeffersongoncalves/laravel-lgpd-dsar",
+    "description": "LGPD data subject requests (art. 18) for Laravel: request tracking with legal deadlines, identity verification, data export and erasure across your models.",
+    "keywords": [
+        "laravel",
+        "lgpd",
+        "dsar",
+        "data-subject-request",
+        "privacy",
+        "anpd",
+        "gdpr",
+        "portability"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-lgpd-dsar",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\LgpdDsar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\LgpdDsar\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\LgpdDsar\\LgpdDsarServiceProvider"
+            ],
+            "aliases": {
+                "LgpdDsar": "JeffersonGoncalves\\LgpdDsar\\Facades\\LgpdDsar"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
